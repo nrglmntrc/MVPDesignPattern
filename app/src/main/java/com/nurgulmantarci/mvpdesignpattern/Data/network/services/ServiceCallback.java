@@ -1,4 +1,10 @@
 package com.nurgulmantarci.mvpdesignpattern.Data.network.services;
 
-public class ServiceCallback {
+public interface ServiceCallback<T> {
+
+    void onResponce(T responce);
+
+    void onError(String message);
+
+
 }

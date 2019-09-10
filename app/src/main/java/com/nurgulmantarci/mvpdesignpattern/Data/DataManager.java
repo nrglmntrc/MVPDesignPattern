@@ -1,4 +1,7 @@
 package com.nurgulmantarci.mvpdesignpattern.Data;
 
-public class DataManager {
+import com.nurgulmantarci.mvpdesignpattern.Data.network.ApiHelper;
+
+public interface DataManager extends ApiHelper {
+
 }
