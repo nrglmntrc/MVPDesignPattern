@@ -16,7 +16,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.google.gson.Gson;
-import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.CommonResponce;
+import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.CommonResponse;
 import com.nurgulmantarci.mvpdesignpattern.R;
 
 import java.io.IOException;
@@ -124,11 +124,11 @@ public class Utils {
         return dateString;
     }
 
-    public static CommonResponce errorHandler(Response<?> response){
-        CommonResponce errorResponce=null;
+    public static CommonResponse errorHandler(Response<?> response){
+        CommonResponse errorResponce=null;
         try{
             Gson gson = new Gson();
-            errorResponce=gson.fromJson(response.errorBody().string(),CommonResponce.class);
+            errorResponce=gson.fromJson(response.errorBody().string(), CommonResponse.class);
 
         } catch (IOException e) {
             e.printStackTrace();

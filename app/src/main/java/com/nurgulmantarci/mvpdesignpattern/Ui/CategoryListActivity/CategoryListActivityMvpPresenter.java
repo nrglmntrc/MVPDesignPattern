@@ -1,4 +1,7 @@
 package com.nurgulmantarci.mvpdesignpattern.Ui.CategoryListActivity;
 
-public class CategoryListActivityMvpPresenter {
+import com.nurgulmantarci.mvpdesignpattern.Ui.Base.MvpPresenter;
+
+public interface CategoryListActivityMvpPresenter<V extends CategoryListActivityMvpView> extends MvpPresenter<V> {
+    void getCategoryList(String language);
 }

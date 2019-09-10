@@ -4,7 +4,7 @@ import com.nurgulmantarci.mvpdesignpattern.Data.network.ApiClient;
 import com.nurgulmantarci.mvpdesignpattern.Data.network.ApiInterface;
 import com.nurgulmantarci.mvpdesignpattern.Data.network.NetworkError;
 import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.Command;
-import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.CommonResponce;
+import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.CommonResponse;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class CommandServiceImp implements CommandService {
     }
 
     @Override
-    public void getCommands(String language, ServiceCallback<List<Command>> listServiceCallback, ServiceCallback<CommonResponce> commonResponceServiceCallback) {
+    public void getCommands(String language, ServiceCallback<List<Command>> listServiceCallback, ServiceCallback<CommonResponse> commonResponceServiceCallback) {
         apiService.getCommands(language).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<Command>>>() {

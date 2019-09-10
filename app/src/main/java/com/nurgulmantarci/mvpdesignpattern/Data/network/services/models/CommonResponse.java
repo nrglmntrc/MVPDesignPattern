@@ -1,6 +1,6 @@
 package com.nurgulmantarci.mvpdesignpattern.Data.network.services.models;
 
-public class CommonResponce {
+public class CommonResponse {
 
     private int code;
     private String message;

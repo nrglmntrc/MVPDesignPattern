@@ -5,7 +5,7 @@ import com.nurgulmantarci.mvpdesignpattern.Data.network.ApiInterface;
 import com.nurgulmantarci.mvpdesignpattern.Data.network.NetworkError;
 import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.Category;
 import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.Command;
-import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.CommonResponce;
+import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.CommonResponse;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class CategoryServiceImp implements CategoryService {
     }
 
     @Override
-    public void getCategories(String language, ServiceCallback<List<Category>> listServiceCallback, ServiceCallback<CommonResponce> commonResponceServiceCallback) {
+    public void getCategories(String language, ServiceCallback<List<Category>> listServiceCallback, ServiceCallback<CommonResponse> commonResponceServiceCallback) {
         apiService.getCategory(language).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<Category>>>() {
@@ -57,7 +57,7 @@ public class CategoryServiceImp implements CategoryService {
     }
 
     @Override
-    public void getCommandsOfCategory(String categoryId, ServiceCallback<List<Command>> listServiceCallback, ServiceCallback<CommonResponce> commonResponceServiceCallback) {
+    public void getCommandsOfCategory(String categoryId, ServiceCallback<List<Command>> listServiceCallback, ServiceCallback<CommonResponse> commonResponceServiceCallback) {
         apiService.getCommandsOfCategory(categoryId).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<Command>>>() {
