@@ -1,6 +1,5 @@
 package com.nurgulmantarci.mvpdesignpattern.Ui.CategoryListActivity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import com.nurgulmantarci.mvpdesignpattern.Data.DataManager;
 import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.Category;
 import com.nurgulmantarci.mvpdesignpattern.Di.DaggerApplication;
-import com.nurgulmantarci.mvpdesignpattern.EventBus.CategoryEvent;
+import com.nurgulmantarci.mvpdesignpattern.Data.network.services.EventBus.CategoryEvent;
 import com.nurgulmantarci.mvpdesignpattern.R;
 import com.nurgulmantarci.mvpdesignpattern.Ui.Adapters.CategoryListRecylerView;
 import com.nurgulmantarci.mvpdesignpattern.Ui.Base.BaseActivity;

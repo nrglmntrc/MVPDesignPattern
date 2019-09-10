@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.nurgulmantarci.mvpdesignpattern.EventBus.EventB;
+import com.nurgulmantarci.mvpdesignpattern.Data.network.services.EventBus.EventB;
 import com.nurgulmantarci.mvpdesignpattern.Utility.Utils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -61,7 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
     }
 
     @Override
-    public void dissmisLoading() {
+    public void dismissLoading() {
         progressDialog.dismiss();
     }
 

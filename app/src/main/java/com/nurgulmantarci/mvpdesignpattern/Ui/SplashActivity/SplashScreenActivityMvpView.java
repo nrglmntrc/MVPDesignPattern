@@ -1,4 +1,7 @@
 package com.nurgulmantarci.mvpdesignpattern.Ui.SplashActivity;
 
-public class SplashScreenActivityMvpView {
+import com.nurgulmantarci.mvpdesignpattern.Ui.Base.MvpView;
+
+public interface SplashScreenActivityMvpView extends MvpView {
+    void changeToCategoryList();
 }

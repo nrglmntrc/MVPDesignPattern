@@ -1,4 +1,4 @@
-package com.nurgulmantarci.mvpdesignpattern.EventBus;
+package com.nurgulmantarci.mvpdesignpattern.Data.network.services.EventBus;
 
 import com.nurgulmantarci.mvpdesignpattern.Data.network.services.models.Category;
 

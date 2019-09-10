@@ -41,12 +41,12 @@ public abstract class BaseFragment extends Fragment implements MvpView {
 
     @Override
     public void showLoading() {
-        dissmisLoading();
+        dismissLoading();
         progressDialog = Utils.showLoadingDialog(this.getContext());
     }
 
     @Override
-    public void dissmisLoading() {
+    public void dismissLoading() {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.cancel();
         }

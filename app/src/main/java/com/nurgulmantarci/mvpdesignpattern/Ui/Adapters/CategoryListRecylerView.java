@@ -1,6 +1,7 @@
 package com.nurgulmantarci.mvpdesignpattern.Ui.Adapters;
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +23,8 @@ public class CategoryListRecylerView extends RecyclerView.Adapter<CategoryListRe
     private ItemListener myListener;
 
     public CategoryListRecylerView(List<Category> items, ItemListener listener) {
-        myItems = items;
-        myListener = listener;
+        this.myItems = items;
+        this.myListener = listener;
     }
 
     public void setListener(ItemListener listener) {
@@ -45,6 +46,11 @@ public class CategoryListRecylerView extends RecyclerView.Adapter<CategoryListRe
         return myItems.size();
     }
 
+
+    public interface ItemListener {
+        void onItemClick(Category item);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         // TODO - Your view members
@@ -54,7 +60,7 @@ public class CategoryListRecylerView extends RecyclerView.Adapter<CategoryListRe
         TextView rowCategoryTitleTextView;
 
         @BindView(R.id.row_category_card_view)
-        TextView rowCategoryCardView;
+        CardView rowCategoryCardView;
 
         @BindView(R.id.row_category_image_view)
         ImageView imageView;
@@ -81,10 +87,6 @@ public class CategoryListRecylerView extends RecyclerView.Adapter<CategoryListRe
         }
     }
 
-
-    public interface ItemListener {
-        void onItemClick(Category item);
-    }
 
 
     public int categoryIcon(String title){

@@ -28,6 +28,7 @@ public class DaggerApplication extends Application {
 
     private DaggerComponent createDaggerComponent() {
         return DaggerDaggerComponent.builder().daggerModule(new DaggerModule(this)).build();
+
     }
 
     public void clearComponent() {

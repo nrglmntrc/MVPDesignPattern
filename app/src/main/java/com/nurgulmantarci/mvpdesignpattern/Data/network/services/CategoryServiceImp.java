@@ -27,7 +27,7 @@ public class CategoryServiceImp implements CategoryService {
     }
 
     @Override
-    public void getCategories(String language, ServiceCallback<List<Category>> listServiceCallback, ServiceCallback<CommonResponse> commonResponceServiceCallback) {
+    public void getCategories(String language, final ServiceCallback<List<Category>> listServiceCallback, final ServiceCallback<CommonResponse> commonResponceServiceCallback) {
         apiService.getCategory(language).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<Category>>>() {
@@ -43,21 +43,19 @@ public class CategoryServiceImp implements CategoryService {
 
             @Override
             public void onError(Throwable e) {
-
-                new NetworkError(e).response(commonResponseServiceCallback);
+                new NetworkError(e).responce(commonResponceServiceCallback);
 
             }
 
             @Override
             public void onNext(List<Category> listOfCategory) {
-                listServiceCallback.onResponse(listOfCategory);
-
+                    listServiceCallback.onResponce(listOfCategory);
             }
         });
     }
 
     @Override
-    public void getCommandsOfCategory(String categoryId, ServiceCallback<List<Command>> listServiceCallback, ServiceCallback<CommonResponse> commonResponceServiceCallback) {
+    public void getCommandsOfCategory(String categoryId, final ServiceCallback<List<Command>> listServiceCallback, final ServiceCallback<CommonResponse> commonResponceServiceCallback) {
         apiService.getCommandsOfCategory(categoryId).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<Command>>>() {
@@ -73,15 +71,12 @@ public class CategoryServiceImp implements CategoryService {
 
             @Override
             public void onError(Throwable e) {
-
-                new NetworkError(e).response(commonResponseServiceCallback);
-
+                new NetworkError(e).responce(commonResponceServiceCallback);
             }
 
             @Override
             public void onNext(List<Command> listOfCommands) {
-                listServiceCallback.onResponse(listOfCommands);
-
+                listServiceCallback.onResponce(listOfCommands);
             }
         });
     }

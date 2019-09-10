@@ -26,30 +26,29 @@ public class CategoryListActivityPresenter<V extends CategoryListActivityMvpView
         getMvpView().showLoading();
 
         dataManager.getCategories(language, new ServiceCallback<List<Category>>() {
+
             @Override
-            public void onResponse(List<Category> response) {
-
-
-                getMvpView().loadDataToRecyclerview(response);
-                getMvpView().dissmisLoading();
+            public void onResponce(List<Category> responce) {
+                getMvpView().loadDataToRecyclerview(responce);
+                getMvpView().dismissLoading();
             }
 
             @Override
             public void onError(String message) {
                 getMvpView().showError(message);
-                getMvpView().dissmisLoading();
+                getMvpView().dismissLoading();
             }
         }, new ServiceCallback<CommonResponse>() {
             @Override
-            public void onResponse(CommonResponse response) {
-                getMvpView().showError(response.getMessage());
-                getMvpView().dissmisLoading();
+            public void onResponce(CommonResponse responce) {
+                getMvpView().showError(responce.getMessage());
+                getMvpView().dismissLoading();
             }
 
             @Override
             public void onError(String message) {
                 getMvpView().showError(message);
-                getMvpView().dissmisLoading();
+                getMvpView().dismissLoading();
             }
         });
     }

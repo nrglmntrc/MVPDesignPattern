@@ -40,9 +40,9 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
 
 
     @Override
-    public void dissmisLoading() {
+    public void dismissLoading() {
         if (mActivity != null) {
-            mActivity.dissmisLoading();
+            mActivity.dismissLoading();
         }
     }
 

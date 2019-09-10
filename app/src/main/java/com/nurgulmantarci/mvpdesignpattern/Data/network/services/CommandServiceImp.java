@@ -26,7 +26,7 @@ public class CommandServiceImp implements CommandService {
     }
 
     @Override
-    public void getCommands(String language, ServiceCallback<List<Command>> listServiceCallback, ServiceCallback<CommonResponse> commonResponceServiceCallback) {
+    public void getCommands(String language, final ServiceCallback<List<Command>> listServiceCallback, final ServiceCallback<CommonResponse> commonResponceServiceCallback) {
         apiService.getCommands(language).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends List<Command>>>() {
@@ -43,14 +43,13 @@ public class CommandServiceImp implements CommandService {
             @Override
             public void onError(Throwable e) {
 
-                new NetworkError(e).response(commonResponseServiceCallback);
+                new NetworkError(e).responce(commonResponceServiceCallback);
 
             }
 
             @Override
             public void onNext(List<Command> listOfEvent) {
-                listServiceCallback.onResponse(listOfEvent);
-
+                listServiceCallback.onResponce(listOfEvent);
             }
         });
     }
