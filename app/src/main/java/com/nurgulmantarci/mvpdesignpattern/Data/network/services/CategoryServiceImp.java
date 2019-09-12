@@ -43,13 +43,13 @@ public class CategoryServiceImp implements CategoryService {
 
             @Override
             public void onError(Throwable e) {
-                new NetworkError(e).responce(commonResponceServiceCallback);
+                new NetworkError(e).response(commonResponceServiceCallback);
 
             }
 
             @Override
             public void onNext(List<Category> listOfCategory) {
-                    listServiceCallback.onResponce(listOfCategory);
+                    listServiceCallback.onResponse(listOfCategory);
             }
         });
     }
@@ -71,12 +71,12 @@ public class CategoryServiceImp implements CategoryService {
 
             @Override
             public void onError(Throwable e) {
-                new NetworkError(e).responce(commonResponceServiceCallback);
+                new NetworkError(e).response(commonResponceServiceCallback);
             }
 
             @Override
             public void onNext(List<Command> listOfCommands) {
-                listServiceCallback.onResponce(listOfCommands);
+                listServiceCallback.onResponse(listOfCommands);
             }
         });
     }

@@ -22,25 +22,25 @@ public class NetworkError extends Throwable{
         return error.getMessage();
     }
 
-    public void responce(ServiceCallback serviceCallback){
+    public void response(ServiceCallback serviceCallback){
         if(this.error instanceof IOException){
             serviceCallback.onError(NETWORK_ERROR_MESSAGE);
         }else if(!(this.error instanceof HttpException)){
             serviceCallback.onError(DEFAULT_ERROR_MESSAGE);
         } else{
-//            retrofit2.Response<?> response = ((HttpException) this.error).response();
-//            if (!response.isSuccessful()) {
-//                if(response.code() == Constant.BAD_REQUEST){
-//                    serviceCallback.onError(DEFAULT_ERROR_MESSAGE);
-//                }else if(response.code()== Constant.SERVER_ERROR){
-//                    serviceCallback.onError(DEFAULT_ERROR_MESSAGE);
-//                }
-//                else {
-//                    serviceCallback.onResponse(Utils.errorHandler(response));
-//                }
-//            } else {
-//                serviceCallback.onError(DEFAULT_ERROR_MESSAGE);
-//            }
+            retrofit2.Response<?> response = ((HttpException) this.error).response();
+            if (!response.isSuccessful()) {
+                if(response.code() == Constant.BAD_REQUEST){
+                    serviceCallback.onError(DEFAULT_ERROR_MESSAGE);
+                }else if(response.code()== Constant.SERVER_ERROR){
+                    serviceCallback.onError(DEFAULT_ERROR_MESSAGE);
+                }
+                else {
+                    serviceCallback.onResponse(Utils.errorHandler(response));
+                }
+            } else {
+                serviceCallback.onError(DEFAULT_ERROR_MESSAGE);
+            }
         }
     }
 

@@ -4,16 +4,11 @@ import android.app.Application;
 
 import dagger.Module;
 
-/**
- * Created by hsmnzaydn on 6/4/18.
- */
 
 @Module
 public class DaggerApplication extends Application {
 
-
     private DaggerComponent daggerComponent;
-
 
     @Override
     public void onCreate() {

@@ -26,7 +26,7 @@ public class CommandListActivityPresenter<V extends CommandListActivityMvpView> 
 
         dataManager.getCommandsOfCategory(categoryId, new ServiceCallback<List<Command>>() {
             @Override
-            public void onResponce(List<Command> responce) {
+            public void onResponse(List<Command> responce) {
                 getMvpView().loadDataToRecylerview(responce);
                 getMvpView().dismissLoading();
             }
@@ -40,7 +40,7 @@ public class CommandListActivityPresenter<V extends CommandListActivityMvpView> 
         }, new ServiceCallback<CommonResponse>() {
 
             @Override
-            public void onResponce(CommonResponse responce) {
+            public void onResponse(CommonResponse responce) {
                 getMvpView().showError(responce.getMessage());
                 getMvpView().dismissLoading();
             }

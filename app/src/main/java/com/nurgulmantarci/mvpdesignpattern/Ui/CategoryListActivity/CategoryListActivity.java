@@ -40,7 +40,8 @@ public class CategoryListActivity extends BaseActivity implements CategoryListAc
         ((DaggerApplication)getApplication()).getDaggerComponent().inject(CategoryListActivity.this);
 
         presenter=new CategoryListActivityPresenter(this,dataManager);
-        presenter.getCategoryList("ENG");
+       // presenter.getCategoryList("ENG");
+        presenter.getCategoryList("TR");
 
     }
 

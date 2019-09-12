@@ -2,7 +2,8 @@ package com.nurgulmantarci.mvpdesignpattern.Utility;
 
 public class Constant {
 
-    public static String LANGUAGE="eng";
+  //  public static String LANGUAGE="eng";
+   public static String LANGUAGE="tr";
     public static String UDID="UDID";
     public static String AUTHORIZATION="AUTHORIZATION";
 

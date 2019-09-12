@@ -43,13 +43,13 @@ public class CommandServiceImp implements CommandService {
             @Override
             public void onError(Throwable e) {
 
-                new NetworkError(e).responce(commonResponceServiceCallback);
+                new NetworkError(e).response(commonResponceServiceCallback);
 
             }
 
             @Override
             public void onNext(List<Command> listOfEvent) {
-                listServiceCallback.onResponce(listOfEvent);
+                listServiceCallback.onResponse(listOfEvent);
             }
         });
     }
